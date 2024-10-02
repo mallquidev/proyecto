@@ -1,54 +1,37 @@
 import React, { useState } from 'react';
 
-const Menu = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
+function Menu() {
+    const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsExpanded(!isExpanded);
-  };
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
 
-  return (
-    <div className="flex">
-      {/* Barra lateral */}
-      <div
-        className={`fixed top-0 left-0 h-full bg-gray-100 shadow-lg transition-width duration-300 ${
-          isExpanded ? 'w-48' : 'w-16'
-        }`}
-      >
-        {/* Botón del menú hamburguesa */}
-        <button
-          className="p-2 focus:outline-none"
-          onClick={toggleMenu}
-          aria-label="Toggle Menu"
-        >
-          {/* Icono del menú hamburguesa */}
-          <div className="w-6 h-0.5 bg-black mb-1"></div>
-          <div className="w-6 h-0.5 bg-black mb-1"></div>
-          <div className="w-6 h-0.5 bg-black"></div>
-        </button>
+    return (
+        <div>
+            
+            <div className="lg:hidden fixed top-0 left-0 z-50 p-4">
+                <button onClick={toggleMenu} className="text-black">
+                    &#9776; 
+                </button>
+            </div>
 
-        {/* Menú con abreviaciones o nombres completos */}
-        <ul className="mt-5 space-y-4">
-          <li className="flex items-center">
-            <span className="text-xl">Confi</span> {/* Abreviación de Configuración */}
-            {isExpanded && <span className="ml-2">Configuración</span>}
-          </li>
-          <li className="flex items-center">
-            <span className="text-xl">Diag</span> {/* Abreviación de Diagnóstico */}
-            {isExpanded && <span className="ml-2">Diagnóstico Técnico</span>}
-          </li>
-          <li className="flex items-center">
-            <span className="text-xl">Pers</span> {/* Abreviación de Personal */}
-            {isExpanded && <span className="ml-2">Gestión de Personal</span>}
-          </li>
-          <li className="flex items-center">
-            <span className="text-xl">Adm</span> {/* Abreviación de Administración */}
-            {isExpanded && <span className="ml-2">Administración</span>}
-          </li>
-        </ul>
-      </div>
-    </div>
-  );
-};
+            <div className={`fixed top-0 left-0 w-64 bg-green-700 text-white h-full transition-transform transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 lg:static`}>
+                <ul className="space-y-4 p-6">
+                    <li className="text-lg">Inicio</li>
+                    <li className="text-lg">Configuraciones</li>
+                    <li className="text-lg">Salir</li>
+                </ul>
+            </div>
+
+            {isOpen && (
+                <div
+                    onClick={toggleMenu}
+                    className="lg:hidden fixed inset-0 bg-black opacity-50"
+                ></div>
+            )}
+        </div>
+    );
+}
 
 export default Menu;
