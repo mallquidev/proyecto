@@ -16,7 +16,7 @@ function Menu() {
                 </button>
             </div>
 
-            <div className={`fixed top-0 left-0 w-64 bg-green-700 text-white h-full transition-transform transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 lg:static`}>
+            <div className={`fixed mt-10 left-0 w-64 bg-green-700 text-white h-full transition-transform transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 lg:static`}>
                 <ul className="space-y-4 p-6">
                     <li className="text-lg">Inicio</li>
                     <li className="text-lg">Configuraciones</li>

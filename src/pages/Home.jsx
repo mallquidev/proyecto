@@ -23,7 +23,7 @@ function Home() {
             <Menu />
             <div className="flex-1 mt-5 p-5 lg:ml-5">
 
-                <div className="fixed top-0 left-0 w-full flex justify-between items-center border border-gray-500 h-14 bg-white px-4 lg:px-8">
+                <div className="fixed top-0 left-0 w-full flex justify-around items-center border border-gray-500 h-14 bg-white px-4 lg:px-8">
                     <h2 className="text-sm lg:text-base">MODULO DE GESTION DE MEMORIA DESCRIPTIVA LST 4</h2>
                     <div className="flex items-center space-x-2">
                         <label htmlFor="" className="text-xs lg:text-base">Ingrese la foto JEAN MARTIN</label>
